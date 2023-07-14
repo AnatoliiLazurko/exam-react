@@ -6,7 +6,6 @@ import BasketItems from './BasketItems';
 const Basket = () => {
 
     const { basketProducts, setBasketProducts } = useContext(BacketContext);
-    const [amount, setAmount] = useState(1);
 
     const totalPrice = basketProducts.reduce((total, product) => total + product.price, 0);
 
@@ -24,16 +23,7 @@ const Basket = () => {
                 </thead>
                 <tbody>
                     {basketProducts.map(product => (
-                        <tr>
-                        <td><img src={product.image} alt={product.title} /></td>
-                        <td>{product.title}</td>
-                        <td>Price: {product.price}</td>
-                        <td>
-                            <button>-</button>
-                            {amount}
-                            <button>+</button>
-                        </td>
-                    </tr>
+                        <BasketItems product={product} key={product.id} />
                     ))}
                 </tbody>
             </table>

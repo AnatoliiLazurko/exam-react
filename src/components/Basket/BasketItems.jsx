@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const BasketItems = ({ product }) => {
+
+    const [amount, setAmount] = useState(1);
+
     return (
         <tr>
             <td><img src={product.image} alt={product.title} /></td>
@@ -8,13 +11,10 @@ const BasketItems = ({ product }) => {
             <td>Price: {product.price}</td>
             <td>
                 <button>-</button>
-                1
+                {amount}
                 <button>+</button>
             </td>
         </tr>
-        // {basketProducts.map(product => (
-        //                 <BasketItems product={product} key={product.id} />
-        //             ))}
     );
 }
 
